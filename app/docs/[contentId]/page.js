@@ -1,7 +1,10 @@
+import ContentDIsplay from '@/components/ContentDIsplay';
 import React from 'react'
 
-const page = ({params: {contentId}}) => {
-  return <div>{contentId}</div>;
+const ContentPage = ({params: {contentId}}) => {
+    return (
+      <ContentDIsplay id={contentId} />
+  );
 }
 
-export default page
+export default ContentPage;
