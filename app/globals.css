@@ -1,26 +1,179 @@
 @import "tailwindcss";
 
+/* Theme Variables */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+
+  --color-lighter-dark: #0f172a;
+  --color-dark: #0b1120;
+
+  --font-size-2xs: 0.75rem;
+  --line-height-2xs: 1.25rem;
+  --font-size-xs: 0.8125rem;
+  --line-height-xs: 1.5rem;
+  --font-size-sm: 0.875rem;
+  --line-height-sm: 1.5rem;
+  --font-size-base: 1rem;
+  --line-height-base: 1.75rem;
+  --font-size-lg: 1.125rem;
+  --line-height-lg: 1.75rem;
+  --font-size-xl: 1.25rem;
+  --line-height-xl: 1.75rem;
+  --font-size-2xl: 1.5rem;
+  --line-height-2xl: 2rem;
+  --font-size-3xl: 1.875rem;
+  --line-height-3xl: 2.25rem;
+  --font-size-4xl: 2.25rem;
+  --line-height-4xl: 2.5rem;
+  --font-size-5xl: 3rem;
+  --font-size-6xl: 3.75rem;
+  --font-size-7xl: 4.5rem;
+  --font-size-8xl: 6rem;
+  --font-size-9xl: 8rem;
+
+  --shadow-glow: 0 0 4px rgb(0 0 0 / 0.1);
+
+  --max-w-lg: 33rem;
+  --max-w-2xl: 40rem;
+  --max-w-3xl: 50rem;
+  --max-w-5xl: 66rem;
+
+  --opacity-1: 0.01;
+  --opacity-2_5: 0.025;
+  --opacity-7_5: 0.075;
+  --opacity-15: 0.15;
+
+  --bg-gradient-radial: radial-gradient(var(--tw-gradient-stops));
+  --bg-gradient-conic: conic-gradient(
+    from 180deg at 50% 50%,
+    var(--tw-gradient-stops)
+  );
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
+/*  Dark Mode */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
   }
 }
 
+/*  Base Styles */
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background-color: rgb(var(--background-start-rgb));
+  color: rgb(var(--foreground-rgb));
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/*  Utility Classes */
+@layer utilities {
+  .text-2xs {
+    font-size: var(--font-size-2xs);
+    line-height: var(--line-height-2xs);
+  }
+  .text-xs {
+    font-size: var(--font-size-xs);
+    line-height: var(--line-height-xs);
+  }
+  .text-sm {
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-sm);
+  }
+  .text-base {
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-base);
+  }
+  .text-lg {
+    font-size: var(--font-size-lg);
+    line-height: var(--line-height-lg);
+  }
+  .text-xl {
+    font-size: var(--font-size-xl);
+    line-height: var(--line-height-xl);
+  }
+  .text-2xl {
+    font-size: var(--font-size-2xl);
+    line-height: var(--line-height-2xl);
+  }
+  .text-3xl {
+    font-size: var(--font-size-3xl);
+    line-height: var(--line-height-3xl);
+  }
+  .text-4xl {
+    font-size: var(--font-size-4xl);
+    line-height: var(--line-height-4xl);
+  }
+  .text-5xl {
+    font-size: var(--font-size-5xl);
+    line-height: 1;
+  }
+  .text-6xl {
+    font-size: var(--font-size-6xl);
+    line-height: 1;
+  }
+  .text-7xl {
+    font-size: var(--font-size-7xl);
+    line-height: 1;
+  }
+  .text-8xl {
+    font-size: var(--font-size-8xl);
+    line-height: 1;
+  }
+  .text-9xl {
+    font-size: var(--font-size-9xl);
+    line-height: 1;
+  }
+
+  .bg-lighterDark {
+    background-color: var(--color-lighter-dark);
+  }
+  .bg-dark {
+    background-color: var(--color-dark);
+  }
+  .text-lighterDark {
+    color: var(--color-lighter-dark);
+  }
+  .text-dark {
+    color: var(--color-dark);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .max-w-lg {
+    max-width: var(--max-w-lg);
+  }
+  .max-w-2xl {
+    max-width: var(--max-w-2xl);
+  }
+  .max-w-3xl {
+    max-width: var(--max-w-3xl);
+  }
+  .max-w-5xl {
+    max-width: var(--max-w-5xl);
+  }
+
+  .opacity-1 {
+    opacity: var(--opacity-1);
+  }
+  .opacity-2_5 {
+    opacity: var(--opacity-2_5);
+  }
+  .opacity-7_5 {
+    opacity: var(--opacity-7_5);
+  }
+  .opacity-15 {
+    opacity: var(--opacity-15);
+  }
+
+  .bg-gradient-radial {
+    background-image: var(--bg-gradient-radial);
+  }
+  .bg-gradient-conic {
+    background-image: var(--bg-gradient-conic);
+  }
 }
